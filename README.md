@@ -1,8 +1,12 @@
 # Job posting scrapper
 - For personal use
-- Get job posts containing predefined keywords from following sources and store it to DB
+
+## How it works
+- Get job posts containing predefined keywords from following sources
     - NAVER Cafe
     - job.korea.ac.kr
+- Process above runs perodically by Airflow scheduler
+- Store scrapped job posting at DB
 - Send alert via messagner if any post newly stored at DB is previously unseen
 
 ## Prerequisites
