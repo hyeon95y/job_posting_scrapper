@@ -1,4 +1,4 @@
-# Prerequisites
+## Prerequisites
 
 ```
 $ direnv allow
