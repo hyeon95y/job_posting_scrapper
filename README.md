@@ -4,8 +4,9 @@
 ## How it works
 
 <p align="center">
-    <img src="https://github.com/hyeon95y/job_posting_scrapper/blob/main/class_diagram.png">
+    <img src="https://github.com/hyeon95y/job_posting_scrapper/blob/main/class_diagram.png" width=600px>
 </p>
+
 - Get job posts containing predefined keywords from following sources
     - NAVER Cafe
     - job.korea.ac.kr
