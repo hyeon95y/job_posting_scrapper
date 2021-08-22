@@ -1,6 +1,8 @@
 # Secrets
 src/notifier/_config_whatsapp.py
-src/scrapper/source/_config_naver_cafe.py
+src/scrapper/source/config/naver_cafe.py
+src/scrapper/source/config/job_korea_ac_kr.py
+db/db.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

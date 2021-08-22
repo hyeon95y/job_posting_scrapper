@@ -7,7 +7,7 @@
 from selenium import webdriver
 
 from paths import APP_PATH
-from scrapper.source._config_naver_cafe import NAVER_ID, NAVER_PASSWORD
+from scrapper.source.config.naver_cafe import NAVER_ID, NAVER_PASSWORD
 
 
 class NaverCafeScrapper:
@@ -19,6 +19,7 @@ class NaverCafeScrapper:
 
         self._os = os
         self._headless = headless
+
         self._driver = self._open_webdriver()
 
     def _get_chromedriver_path(self, os: str):
