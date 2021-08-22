@@ -1,7 +1,12 @@
+# Secrets
+src/notifier/_config_whatsapp.py
+src/scrapper/source/_config_naver_cafe.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+.DS_Store
 
 # C extensions
 *.so
