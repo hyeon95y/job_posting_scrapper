@@ -17,6 +17,12 @@ JOB_POSTING_TABLE_XPATH = '//*[@id="sub_container"]/div[3]/div[2]/div[3]/table/t
 
 
 class JobKoreaAcKrScrapper(BaseWebScrapper):
+    """Web scrapper gets data from job.korea.ac.krs
+
+    Args:
+        BaseWebScrapper ([type]): Basic web scrapper with selenium
+    """
+
     def __init__(self, os: str = 'macos64', headless: bool = False):
         super().__init__(os=os, headless=headless)
         self._login = {'id': KOREA_AC_KR_ID, 'pw': KOREA_AC_KR_PASSWORD}
@@ -34,7 +40,7 @@ class JobKoreaAcKrScrapper(BaseWebScrapper):
     def _get_next_page_xpath(self, current_page_num: int):
         return '//*[@id="sub_container"]/div[3]/div[2]/div[4]/div/a[%s]' % (current_page_num + 2)
 
-    def _get_table(self):
+    def get_table(self):
         table = self._driver.find_element_by_xpath(JOB_POSTING_TABLE_XPATH)
         table = self._parse_table(table)
         return table
@@ -84,8 +90,12 @@ class JobKoreaAcKrScrapper(BaseWebScrapper):
 
         data_dates = pd.DataFrame(data_dates)
         data_titles = pd.DataFrame(data_titles)
+        data = data_dates.merge(
+            data_titles.iloc[: data_dates.shape[0] - 1], left_index=True, right_index=True)
+        data.loc[:, 'source'] = 'job.korea.ac.kr'
+        data.loc[:, 'primary_key'] = 'post_id'
 
-        return data_dates.merge(data_titles.iloc[: data_dates.shape[0] - 1], left_index=True, right_index=True)
+        return data
 
     def sign_in(self):
         self._driver.get(SIGN_IN_URL)
